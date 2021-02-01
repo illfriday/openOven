@@ -4,3 +4,29 @@
   left: 0;
   max-width:20%;
 }
+
+.carousel-inner >.carousel-item > img {
+  height: 300px;
+  overflow:hidden;
+  width:100%;
+}
+
+.carousel-item{
+  width: 100%;
+  overflow:hidden;
+}
+
+.card{
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.cardInfoToggle {
+  
+  display: flex;
+  flex-direction:column;
+  word-wrap: break-word;
+  /* align-items: baseline; */
+  align-content: stretch;
+  justify-content: space-around;
+}
