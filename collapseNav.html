@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="css/openOvenCollapse.css">
+
+  <title>openOven</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand navbar-dark sticky-top">
+    <div class="collapse navbar-collapse" id="mainNav">
+      <a href="#">
+        <img src="./misc_files/openOvenIcon.svg" id="openOvenIcon" alt="">
+      </a>
+      <h1 class="pl-2">openOven</h1>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#">Blog</a> </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0"> </form>
+    </div>
+    <!-- Filter sidebar Toggle -->
+    <a href="#menuToggle" id="menuToggle">
+      <h3 class="filterToggle">Filter <i class=" fas fa-bars"></i></h3>
+    </a>
+
+    <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav"
+      aria-expanded="false" aria-label="Toggle navigation"> </button>
+  </nav>
+
+
+  <div id="wrapper" class="toggled">
+    <div id="sidebarWrapper" class="pl-3 pt-3">
+      <h3 class="navHeader">Filter By</h2>
+        <form action="get">
+          <div class="form-group ">
+            <input type="checkbox" id="users">
+            <label for="users" class="form-label">Users</label>
+          </div>
+          <div class="form-group ">
+            <input type="checkbox" id="ingredients">
+            <label for="ingredients" class="form-label">Ingredients</label>
+          </div>
+          <div class="form-group ">
+            <input type="checkbox" id="flavors">
+            <label for="flavors" class="form-label">Flavors</label>
+          </div>
+        </form>
+    </div>
+
+
+    <div id="pageContentWrapper">
+      <div class="container">
+        <div class="row ">
+          <!-- CARDS HAVE UNEXPECTED BEHAVIOR DISPLAY 3 CARDS ON XS SCREEN -->
+          <div class="col col-sm-6 col-md-5 col-lg-4 col-xl-3 m-3">
+            <div class="card">
+              <img src="./img/macNCheese.jpeg" alt="" class=" p-1 card-img-top cardPhoto py-3">
+              <h3 class="card-header">Mac N Cheese</h3>
+              <div class="card-body">
+                <h5 class="card-subtitle">Ingredients</h5>
+                <div class="card-text">Macaroni</div>
+                <div class="card-text">Cheese</div>
+                <h5 class="card-subtitle">Instructions</h5>
+                <div class="card-text">Heat a pot of water to boiling</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-sm-6 col-md-5 col-lg-4 col-xl-3 m-3">
+            <div class="card">
+              <img src="./img/minestrone.jpeg" alt="" class=" p-1 card-img-top cardPhoto py-3">
+              <h3 class="card-header">Minestrone Soup with Crispy Kale</h3>
+              <div class="card-body">
+                <h5 class="card-subtitle">Ingredients</h5>
+                <div class="card-text">Beans</div>
+                <div class="card-text">Cheese</div>
+                <h5 class="card-subtitle">Instructions</h5>
+                <div class="card-text">Heat a pot of water to boiling</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-sm-6 col-md-5 col-lg-4 col-xl-3 m-3">
+            <div class="card">
+              <img src="./img/macNCheese.jpeg" alt="" class=" p-1 card-img-top cardPhoto py-3">
+              <h3 class="card-header">Minestrone Soup with Crispy Kale</h3>
+              <div class="card-body">
+                <h5 class="card-subtitle">Ingredients</h5>
+                <div class="card-text">Beans</div>
+                <div class="card-text">Cheese</div>
+                <h5 class="card-subtitle">Instructions</h5>
+                <div class="card-text">Heat a pot of water to boiling</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+      $(function () {
+        $("#menuToggle").click(function (e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+
+        $(window).resize(function (e) {
+          if ($(window).width() <= 768) {
+            $("#wrapper").removeClass("toggled");
+          } else {
+            $("#wrapper").addClass("toggled");
+          }
+        });
+      });
+    </script>
+  </footer>
+</body>
+
+</html>
