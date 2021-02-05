@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>openOven</title>
+
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
   <link rel="stylesheet" href="css/openOven.css">
-  
-  <title>openOven</title>
+
 </head>
 
 <body>
@@ -19,27 +20,81 @@
         </a>
         <ul class="navbar-nav ml-auto flex-row-reverse pt-1">
           <li class="nav-item">
-            <a class="nav-link d-inline-block " href="#">
+            <a class="nav-link d-inline-block " href="#" data-toggle="modal" data-target="#addRecipe">
               <span><i class="fa fa-plus fa-lg"></i></span>
             </a>
           </li>
+<!-- ADD USER PAGE if logged in? OR ask for login? -->
           <li class="nav-item">
-            <a class="nav-link d-inline-block pr-3" href="">
+            <a class="nav-link d-inline-block pr-3" href="user.html">
               <span><i class="fa fa-user fa-lg"></i></span>
             </a>
           </li>
         </ul>
     </div>
   </nav>
-  <div class="col m-0 ">
-    <input type="text" class="form-control  fa py-1 " placeholder="&#xf002; Search">
+
+<!-- NEW RECIPE MODAL. Need to add jS to make it create a new card -->
+  <div class="modal fade" tabidex="-1" id="addRecipe" role="dialog" aria-labelledby="addANewRecipe" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="modal-content ">
+            <div class="modal-header col ">
+              <h5 class="modal-title" id="addANewRecipe">Add a New Recipe
+              </h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="post">
+                <div class="form-group col">
+                  <label for="recipeTitle" class="form-label">Recipe Title:</label>
+                  <input type="text" id="recipeTitle" name="recipeTitle" class="form-control">
+                </div>
+                <div class="form-group col">
+                  <label for="recipeImage" class="form-label">Add an Image:</label>
+                  <input type="file" id="recipeTitle" name="recipeImage" class="form-control-file">
+                </div>
+                <div class="form-group">
+                  <label for="recipeIngredients" class="form-label" >Ingredients:</label>
+                  <textarea id="recipeIngredients" class="form-control " rows="5">
+                  </textarea>
+                </div>
+                <div class="form-group">
+                  <label for="recipeInstructions" class="form-label">Instructions:</label>
+                  <textarea id="recipeInstructions" class="form-control" rows="5">
+                  </textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer col">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                Close
+              </button>
+              <button class="btn btn-dark" id="submitRecipe" type="submit">
+                Add a Recipe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIX X MARGIN -->
+  <div class="col-12 col-md-6 col-lg-5  col-xl-4 m-0 py-3">
+    <input type="text" class="form-control fa" placeholder="&#xf002; Search">
   </div>
 
   <div class="container">
-    <div class="row">
-      
-      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 flex-row">
-        <div class="col-1 bg-secondary ml-0 cardInfoToggle">INFO</div>
+    <div class="row order-md-12">
+      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 col-md-6 col-lg-4 flex-row ">
+        <!--ADD RECIPE INFO popover? collapse? with 2 tabs?
+        FIX CRAZY TEXT FORMATTING~~-->
+        <div class="col-1 bg-secondary ml-0 cardInfoToggle">INFO
+        </div>
         <div class="col-11 pl-0">
           <div class="mt-2  img-thumbnail">
             <div id="carouselMac" class="carousel slide" data-ride="carousel">
@@ -68,8 +123,9 @@
         </div>
       </div>
 
-      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 flex-row">
-        <div class="col-1 bg-secondary ml-0 cardInfoToggle">INFO</div>
+      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 col-md-6 col-lg-4 flex-row">
+        <div class="col-1 bg-secondary ml-0 cardInfoToggle">INFO
+        </div>
         <div class="col-11 pl-0">
           <div class="mt-2  img-thumbnail">
             <div id="carouselMine" class="carousel slide" >
@@ -98,8 +154,9 @@
         </div>
       </div>
 
-      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 flex-row">
-        <div class="col-1 bg-secondary ml-0 cardInfoToggle">INFO</div>
+      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 col-md-6 col-lg-4 flex-row">
+        <div class="col-1 bg-secondary ml-0 cardInfoToggle">INFO
+        </div>
         <div class="col-11 pl-0">
           <div class="mt-2  img-thumbnail">
             <div id="carouselBuddha" class="carousel slide"  >
@@ -119,7 +176,6 @@
                   <img class="d-block w-100" src="img/buddhaBowl3.jpeg" alt="Third slide">
                 </div>
               </div>
-              
             </div>
           </div>
           <div class="card-body">
@@ -128,36 +184,41 @@
           </div>
         </div>
       </div>
-    </div>
-
-    
-
-    <div class="row">
-      <div class="col bg-secondary mt-3">
-        <h2 class="text-center mx-auto  pt-2"><strong>CONTEST: </strong>Hot Toddies</h2>
-        <div class="col col-lg-4 mx-xs-auto mr-lg-auto">
-          <img class="img-fluid py-3" src="/img/hottoddy1.jpeg" alt="">
+      
+        <div class="col-12 bg-secondary mt-3 order-md-first">
+          <h2 class="text-center mx-auto  pt-2"><strong>CONTEST: </strong>Hot Toddies</h2>
+          <div class="col col-xl-4 mx-xs-auto pl-md-0 mr-lg-auto">
+            
+            <img class="img-fluid py-3" src="/img/hottoddy1.jpeg" alt="">
+          </div>
         </div>
-      </div>
+      
     </div>
+
+        <!-- Contest section: add content/fix styling
+                      should be hero on desktop? 
+                      should have large revolving carousel on desktop?-->
+    
   </div>
-  
 
-  
-
+<!-- ADD PAGE FOOTER links? social? -->
   <footer>
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- TRYING TO GET CAROUSEL TO STOP AUTO SCROLLING -->
-      <script>
-      $('.carousel').carousel({
-          pause: true,
-          interval: false
-        });
-    </script>
- 
+    <div class="bg-dark">
+      <h5 class="text-center p-3 mt-2 mb-0">Social</h5>
+    </div>
   </footer>
+
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <!-- Stops carousel from auto-scrolling -->
+  <script>
+    $('.carousel').carousel({
+      pause: true,
+      interval: false
+    });
+  </script>
+
 </body>
 </html>
