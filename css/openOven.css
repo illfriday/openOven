@@ -5,8 +5,11 @@
   max-width:20%;
 }
 
-.carousel-inner >.carousel-item > img {
-  height: 300px;
+.navbar> .container{
+  max-width:none!important;
+}
+.cardCarousel>.carousel-inner >.carousel-item > img {
+  /* height: 300px; */
   overflow:hidden;
   width:100%;
 }
@@ -31,4 +34,68 @@
   align-content: baseline;
   justify-content: space-around;
   padding-left: .5rem;
+}
+
+@media(min-width: 769px){
+  .card:first-of-type {
+    margin-left: 0!important;
+  }
+}
+
+/* CONTEST CAROUSEL RESPONSIVE?? */
+#carousel-thumbs {
+  background: rgba(255,255,255,.3);
+  bottom: 0;
+  left: 0;
+  padding: 0 50px 10px 50px;
+  right: 0;
+}
+/* BIT OF AN ISSUE ON SM SIZE WITH THE MAX_WIDTH... 
+USE MEDIA QESRY HERE? */
+#carousel-thumbs img {
+  border: 5px solid transparent;
+  cursor: pointer;
+  height:65px;
+  max-width: 100px;
+  object-fit: cover;
+}
+
+#contestCarousel>.carousel-inner>.carousel-item>img {
+  padding: 1rem;
+  width:100%;
+  height: auto;
+  max-height: 18rem;
+  max-width: none;
+  object-fit: cover;
+}
+
+#carousel-thumbs img:hover {
+  border-color: rgba(255,255,255,.3);
+}
+
+#carousel-thumbs .selected img {
+  border-color: #fff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+}
+
+@media all and (max-width: 767px) {
+  .carousel-container #carousel-thumbs img {
+    border-width: 3px;
+  }
+}
+
+@media all and (min-width: 576px) {
+  .carousel-container #carousel-thumbs {
+    position: absolute;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .carousel-container #carousel-thumbs {
+    background: #ccccce;
+  }
 }
