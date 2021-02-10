@@ -9,9 +9,10 @@
   max-width:none!important;
 }
 .cardCarousel>.carousel-inner >.carousel-item > img {
-  /* height: 300px; */
+  height: 300px;
   overflow:hidden;
   width:100%;
+  object-fit: cover;
 }
 
 .carousel-item{
@@ -22,18 +23,71 @@
 .card{
   overflow: hidden;
   max-width: 300px;
+  max-height: 500px;
 }
 
+/* Toggles info over cards */
 .cardInfoToggle {
-  font-weight:bold;
-  line-height: 2.25rem;
   display: flex;
-  flex-direction:column;
-  word-wrap: break-word;
-  /* align-items: baseline; */
-  align-content: baseline;
-  justify-content: space-around;
-  padding-left: .5rem;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  z-index:50;
+}
+
+.cardInfoToggle a{
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  display:block;
+  padding:  13rem 0.2rem 13rem 0;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* cards collapsed info NAV */
+.ingredientsCollapse .nav {
+  display: inline-block;
+}
+
+.ingredientsCollapse .nav > li{
+  display: inline-block;
+  width: initial;
+  white-space: nowrap;
+}
+
+.ingredientsCollapse .nav > li > a{
+  padding: 0.2rem 0.3rem;
+  text-decoration: none;
+  color:black;
+}
+
+.ingredientsCollapse .nav > li > a.active{
+  font-weight: bold;
+}
+
+.ingredientsCollapse .nav > li.close{
+  display:inline-flex;
+  flex-direction: row-reverse;
+  margin-left: auto;
+  /* float: right;
+  position: absolute;
+  top: 0;
+  right: 0; */
+}
+
+ /* cards collapsed info */
+.ingredientsCollapse {
+  position:absolute;
+  z-index: 100;
+  background-color: white;
+  flex-direction: column; 
+}
+
+.ingredientsList {
+  overflow-y: auto;
+  height: 425px;
 }
 
 @media(min-width: 769px){
@@ -47,7 +101,7 @@
   background: rgba(255,255,255,.3);
   bottom: 0;
   left: 0;
-  padding: 0 50px 10px 50px;
+  padding: 0 30px 10px 30px;
   right: 0;
 }
 /* BIT OF AN ISSUE ON SM SIZE WITH THE MAX_WIDTH... 
@@ -63,9 +117,9 @@ USE MEDIA QESRY HERE? */
 #contestCarousel>.carousel-inner>.carousel-item>img {
   padding: 1rem;
   width:100%;
-  height: auto;
-  max-height: 18rem;
-  max-width: none;
+  height: 15rem;
+  /* max-height: 18rem;
+  max-width: none; */
   object-fit: cover;
 }
 
@@ -82,6 +136,14 @@ USE MEDIA QESRY HERE? */
   width: 50px;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 75px;
+  width: 75px;
+  color: black;
+  background-size: 75%, 75%;
+}
+
 @media all and (max-width: 767px) {
   .carousel-container #carousel-thumbs img {
     border-width: 3px;
@@ -91,11 +153,18 @@ USE MEDIA QESRY HERE? */
 @media all and (min-width: 576px) {
   .carousel-container #carousel-thumbs {
     position: absolute;
+    margin: 0 auto -30px auto;
   }
 }
 
 @media all and (max-width: 576px) {
   .carousel-container #carousel-thumbs {
     background: #ccccce;
+  }
+}
+
+@media (min-width: 576px) {
+  #contestCarousel>.carousel-inner>.carousel-item>img {
+    margin-bottom: 30px;
   }
 }
