@@ -8,6 +8,36 @@
 .navbar> .container{
   max-width:none!important;
 }
+
+.card-deck {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  grid-gap: 1.5rem;
+}
+
+/* CARDS */
+.card{
+  overflow: hidden;
+  max-width: 300px;
+  max-height: 500px;
+  margin: 15px 30px 15px 0;
+  padding-left: 0;
+  border: 2px solid rgb(119, 119, 119);
+}
+
+/* BOOKMARK ICON */
+.card .bookmark {
+  z-index: 100;
+  position:absolute;
+  top: .5%; 
+  right: 1%;
+  color:rgb(119, 119, 119);
+}
+
+/* CARD CAROUSEL  */
+.img-thumbnail {
+  margin-left: 7px;
+}
 .cardCarousel>.carousel-inner >.carousel-item > img {
   height: 300px;
   overflow:hidden;
@@ -20,10 +50,11 @@
   overflow:hidden;
 }
 
-.card{
-  overflow: hidden;
-  max-width: 300px;
-  max-height: 500px;
+/* centers cards below medium */
+@media (max-width: 767px){
+  .card {
+    margin: 15px auto;
+  }
 }
 
 /* Toggles info over cards */
@@ -89,12 +120,13 @@
   overflow-y: auto;
   height: 425px;
 }
-
-@media(min-width: 769px){
-  .card:first-of-type {
-    margin-left: 0!important;
-  }
+/* TRYING TO CHANGE ORDER ON DESKTOP */
+/* .order-md-first{
+  order: 1;
 }
+.order-md-2{
+  order: 2;
+   */
 
 /* CONTEST CAROUSEL RESPONSIVE?? */
 #carousel-thumbs {
@@ -167,4 +199,26 @@ USE MEDIA QESRY HERE? */
   #contestCarousel>.carousel-inner>.carousel-item>img {
     margin-bottom: 30px;
   }
+}
+
+/* FOOTER */
+.footContainer {
+  margin: 20px 0;
+  width: 100%;
+  position:absolute;
+  left: 0;
+  right: 0;
+}
+
+.btn-social-icon {
+  margin-right: 8px;
+}
+
+.footLinks {
+  list-style: none;
+  text-decoration: none;
+}
+
+.footLinks a {
+  color: rgb(243, 243, 243);
 }

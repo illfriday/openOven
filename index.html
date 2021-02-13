@@ -6,19 +6,21 @@
   <title>openOven</title>
 
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
   <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+
   <link rel="stylesheet" href="css/openOven.css">
 
 </head>
 
 <body>
   <nav class="navbar navbar-dark bg-dark sticky-top">
-    <div class="container mx-1 pr-0">
-        <a class=" navbar-brand d-inline pb-0 ">
+    <div class="container mx-1 pr-0 flex-container">
+        <a class=" navbar-brand d-inline pb-0">
           <img src="/misc_files/openOvenIcon.svg" alt="openOven Icon" class="  " id="oOIcon" height="50" width="150">
           <span class="pl-lg-2">openOven</span>
         </a>
-        <ul class="navbar-nav ml-auto flex-row-reverse pt-1">
+        <ul class="navbar-nav ml-auto flex-row-reverse pt-1 ">
           <li class="nav-item">
             <a class="nav-link d-inline-block " href="#" data-toggle="modal" data-target="#addRecipe">
               <span><i class="fa fa-plus fa-lg"></i></span>
@@ -30,9 +32,15 @@
               <span><i class="fa fa-user fa-lg"></i></span>
             </a>
           </li>
+          
         </ul>
     </div>
+   
   </nav>
+  <div class="col-12 col-md-6 col-lg-5 col-xl-4 m-0 mb-md-2 px-0 ">
+    <input type="text" class="form-control fa" placeholder="&#xf002; Search">
+  </div>
+  
 
 <!-- NEW RECIPE MODAL. Need to add jS to make it create a new card -->
   <div class="modal fade" tabidex="-1" id="addRecipe" role="dialog" aria-labelledby="addANewRecipe" aria-hidden="true">
@@ -55,7 +63,7 @@
                 </div>
                 <div class="form-group col">
                   <label for="recipeImage" class="form-label">Add an Image:</label>
-                  <input type="file" id="recipeTitle" name="recipeImage" class="form-control-file">
+                  <input type="file" id="recipeImage"  name="recipeImage" class="form-control-file">
                 </div>
                 <div class="form-group">
                   <label for="recipeIngredients" class="form-label" >Ingredients:</label>
@@ -83,23 +91,22 @@
     </div>
   </div>
 
-  <div class="col-12 col-md-6 col-lg-5 col-xl-4 m-0 mb-lg-2 px-0">
-    <input type="text" class="form-control fa" placeholder="&#xf002; Search">
-  </div>
-
-  <div class="container">
-    <div class="row order-md-2 col-12 ">
-      <div class="card mx-auto mr-lg-3 ml-md-0 my-3 pl-0 col-12 col-md-6 col-lg-4 flex-row ">
+  <div class="container d-flex flex-column">
+    <div class="row order-md-2 col-12 px-md-0 card-deck">
+      <div class="card col-12 col-md-6 col-lg-4 flex-row mx-auto mx-md-0 ">
         <div class="col-1 bg-secondary cardInfoToggle">
           <div class="row">
-            <div class="col-6 px-0">
+            <div class="col px-0">
               <a href="#macInfo" data-toggle="collapse" role="button" aria-expanded="false"
                 aria-controls="macInfo">INFO</a>
             </div>
           </div>
         </div>
         <div class="col-11 pl-0">
-          <div class="mt-2  img-thumbnail">
+          <div class="mt-2 img-thumbnail">
+            <div >
+              <a><i onclick="toggleBookmark(this)" class="bookmark far fa-3x fa-bookmark"></i></a>
+            </div>
             <div id="carouselMac" class="carousel cardCarousel slide" >
               <ol class="carousel-indicators">
                 <li data-target="#carouselMac" data-slide-to="0" class="active"></li>
@@ -139,7 +146,7 @@
                       aria-contols="macInstructions" aria-selected="false">Instructions</a>
                   </li>
                   <li class="nav-item close">
-                    <span data-toggle="collapse" data-target="#macInfo"><i class="far fa-lg fa-window-close"></i></span>
+                    <span data-toggle="collapse" data-target="#macInfo"><i class="fa fa-window-close"></i></span>
                   </li>
                 </ul>
             </div>
@@ -191,16 +198,19 @@
         </div>
       </div>
 
-      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 col-md-6 col-lg-4 flex-row">
+      <div class="card col-12 col-md-6 col-lg-4 flex-row">
         <div class="col-1 bg-secondary cardInfoToggle">
           <div class="row">
-            <div class="col-6 px-0">
+            <div class="col px-0">
               <a href="#mineInfo" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="mineInfo">INFO</a>
             </div>
           </div>
         </div>
         <div class="col-11 pl-0">
           <div class="mt-2  img-thumbnail">
+            <div>
+              <a><i onclick="toggleBookmark(this)" class="bookmark far fa-3x fa-bookmark"></i></a>
+            </div>
             <div id="carouselMine" class="carousel cardCarousel slide" >
               <ol class="carousel-indicators">
                 <li data-target="#carouselMine" data-slide-to="0" class="active"></li>
@@ -240,7 +250,7 @@
                       aria-contols="mineInstructions" aria-selected="false">Instructions</a>
                   </li>
                   <li class="nav-item close">
-                    <span data-toggle="collapse" data-target="#mineInfo"><i class="far fa-lg fa-window-close"></i></span>
+                    <span data-toggle="collapse" data-target="#mineInfo"><i class="fa fa-window-close"></i></span>
                   </li>
                 </ul>
               </div>
@@ -308,16 +318,19 @@
         </div>
       </div>
 
-      <div class="card mx-auto mx-lg-3 my-3 pl-0 col-12 col-md-6 col-lg-4 flex-row">
+      <div class="card col-12 col-md-6 col-lg-4 flex-row">
         <div class="col-1 bg-secondary cardInfoToggle">
           <div class="row">
-            <div class="col-6 px-0">
+            <div class="col px-0">
               <a href="#buddhaInfo" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="buddhaInfo">INFO</a>
             </div>
           </div>
         </div>
         <div class="col-11 pl-0">
           <div class="mt-2  img-thumbnail">
+            <div>
+              <a><i onclick="toggleBookmark(this)" class="bookmark far fa-3x fa-bookmark"></i></a>
+            </div>
             <div id="carouselBuddha" class="carousel cardCarousel slide"  >
               <ol class="carousel-indicators">
                 <li data-target="#carouselBuddha" data-slide-to="0" class="active"></li>
@@ -357,7 +370,7 @@
                       aria-contols="buddhaInstructions" aria-selected="false">Instructions</a>
                   </li>
                   <li class="nav-item close">
-                    <span data-toggle="collapse" data-target="#buddhaInfo"><i class="far fa-lg fa-window-close"></i></span>
+                    <span data-toggle="collapse" data-target="#buddhaInfo"><i class="fa fa-window-close"></i></span>
                   </li>
                 </ul>
               </div>
@@ -404,13 +417,14 @@
           </div>
         </div>
       </div>
-      
+    </div>
       <!-- CONTEST SECTION FIRST ON DESKTOP 3RD? ON MOBILE-->
-      <div class="col-12 bg-secondary mt-3 order-md-first mb-lg-2 mb-xl-3">
+    <div class="row order-md-first"></div>
+      <div class="col-12 bg-secondary mt-3  mb-lg-2 mb-xl-3">
         <h2 class="text-center mx-auto  pt-3"><strong>CONTEST: </strong>Hot Toddies</h2>
 
         <div class="carousel-container position-relative row">
-          <div id="contestCarousel" class="carousel slide" data-ride="carousel">
+          <div id="contestCarousel" class="carousel slide" >
             <div class="carousel-inner">
               <div class="carousel-item active" data-slide-number="0">
                 <img src="/img/hottoddy1.jpeg" class="d-block w-100" alt="...">
@@ -446,7 +460,7 @@
           </div>
         
           <!-- Carousel Navigation -->
-          <div id="carousel-thumbs" class="carousel slide mx-auto" data-ride="carousel">
+          <div id="carousel-thumbs" class="carousel slide mx-auto" >
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="row mx-0">
@@ -515,26 +529,36 @@
         </div>
       </div>
     </div>
-
-        <!-- Contest section: add content/fix styling
-                      should be hero on desktop? 
-                      should have large revolving carousel on desktop?-->
-    
   </div>
 
 <!-- ADD PAGE FOOTER links? social? -->
   <footer>
-    <div class="bg-dark">
-      <h5 class="text-center p-3 mt-2 mb-0">Social</h5>
+    <div class="container-fluid bg-dark text-light footContainer">
+      <div class="row">
+        <div class="col-4">
+          <ul class="footLinks pt-2 mr-3">
+            <li><a href="">Blog</a></li>
+            <li><a href="">Tips</a></li>
+            <li><a href="">Docs</a></li>
+          </ul>
+        </div>
+        <div class=" col-6 text-center pt-2 pb-3">
+          <h5>Social</h5>
+          <a class="btn btn-social-icon btn-instagram" href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+          <a class="btn btn-social-icon btn-facebook" href="http://facebook.com"><i class="fab fa-facebook"></i></a>
+          <a class="btn btn-social-icon btn-twitter" href="http://twitter.com"><i class="social fab fa-twitter"></i></a>
+          <a class="btn btn-social-icon btn-google" href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
     </div>
+      
+    
   </footer>
 
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/js/openOven.js"></script>
- 
-  
 
 </body>
 </html>

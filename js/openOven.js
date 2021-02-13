@@ -10,9 +10,11 @@ $(function() {
 // stops contestCarousel from auto scrolling
 $(function() {
   $('#contestCarousel').carousel({
-    interval: false,
+    pause: true,
+    interval: false
   });
   $('#carousel-thumbs').carousel({
+    pause: true,
     interval: false
   });
 })
@@ -37,7 +39,7 @@ $(window).resize(function () {
     $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function () {
       var boundary = $(this);
       $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
-  });
+    });
   }
 })  
 // Hide slide arrows if too few items.
@@ -55,21 +57,33 @@ $(function () {
     var id = parseInt($(e.relatedTarget).attr('data-slide-number'));
     $('[id^=carousel-selector-]').removeClass('selected');
     $('[id=carousel-selector-' + id + ']').addClass('selected');
-  });
+  })
 })
 
+//BOOKMARK TOGGLE
+function toggleBookmark(i) {
+  i.classList.toggle("fas");
+}
+  // $(function () {
+  //   let bookmark = $('.bookmark');
+  //   $(bookmark).click(function () {
+  //     $(bookmark).toggleClass("far, fas");
+  //   })
+  // })
+
 // when user swipes, go next or previous
-$(function () {
-  $('#contestCarousel').swipe({
-    fallbackToMouseEvents: true,
-    swipeLeft: function (e) {
-      $('#contestCarousel').carousel('next');
-    },
-    swipeRight: function (e) {
-      $('#contestCarousel').carousel('prev');
-    },
-    allowPageScroll: 'vertical',
-    preventDefaultEvents: false,
-    threshold: 75
-  });
-})
+// $(function () {
+//   $('#myCarousel').swipe({
+//     fallbackToMouseEvents: true,
+//     swipeLeft: function (e) {
+//       $('#myCarousel').carousel('next');
+//     },
+//     swipeRight: function (e) {
+//       $('#myCarousel').carousel('prev');
+//     },
+//     allowPageScroll: 'vertical',
+//     preventDefaultEvents: false,
+//     threshold: 75
+//   });
+// })
+
